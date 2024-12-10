@@ -147,15 +147,14 @@ calc_hardness <- function(Calcium, Magnesium){
 #' other values so no required inputs, except the parameter of interest.
 #' @param Parameter
 #'
-#' @return
+#' @return Vector of Interim sediment quality guidelines(ISQG) and probably effect levels (PEL)
 #' @export
 #'
 #' @examples
 lookup_sediment_guidelines <- function(Parameter){
 
-  short = ccme_sediment$CCMEsediment_short [Parameter==ccme_sediment$Parameter]
-  long=ccme_sediment$CCMEsediment_long [Parameter==ccme_sediment$Parameter]
-
-  return(c(as.numeric(short), as.numeric(long)))
+  ISQG = ccme_sediment$CCMEsediment_ISQG [Parameter==ccme_sediment$Parameter]
+  PEL=ccme_sediment$CCMEsediment_PEL[Parameter==ccme_sediment$Parameter]
+  return(c(as.numeric(ISQG), as.numeric(PEL)))
 
 }
